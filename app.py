@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
-import keras
-from keras.preprocessing.sequence import pad_sequences
+from tensorflow import keras
 
 app = Flask(__name__)
 
@@ -20,7 +19,6 @@ def classify():
     Tokenizer = pickle.load(open('models/tokenizer.pkl', 'rb'))
 
     tokens = Tokenizer.texts_to_sequences([text])
-    tokens = pad_sequences(tokens, maxlen=100)
     prediction = saved_model.predict(np.array(tokens))
     pred = np.argmax(prediction)
     classes = ['BookRestaurant', 'GetWeather', 'PlayMusic', 'RateBook']
@@ -30,5 +28,5 @@ def classify():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5544)
+    app.run(debug=True)
 

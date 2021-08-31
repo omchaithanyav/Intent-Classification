@@ -4,6 +4,6 @@ Jinja2
 Werkzeug
 itsdangerous
 MarkupSafe
-keras
+tensorflow
 numpy
 
