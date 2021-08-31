@@ -1,9 +1,6 @@
 Flask
 gunicorn
 Jinja2
-Werkzeug
-itsdangerous
-MarkupSafe
 tensorflow
 numpy
 
