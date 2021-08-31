@@ -6,5 +6,4 @@ itsdangerous
 MarkupSafe
 tensorflow
 numpy
-scikit-learn
-matplotlib
+
