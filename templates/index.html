@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body style="background-color:black;">
+<h1 style="text-align:center;";><font color="#ffff00" size="50">Intent Classifier</font></h1>
+<h3 style="text-align:right;"><font color="#66ff66">Project by: Om Chaithanya V</font></h3>
+<h3 style="text-align:right;"><font color=##66ccff><a href="https://github.com/omchaithanyav">GitHub</a> | <a href="https://www.linkedin.com/in/omchaithanya/">LinkedIn</a> | <a href="https://vomchaithanya.medium.com/">Medium</a></font></h3>
+
+<form action="{{ url_for('classify')}}" method='post'>
+    <label for="sentence" color = "#ffff00" style=font-size:22px;"><font color="white">sentence:</font>font></label><br>
+  <input type="text" id="sentence" name="sentence" placeholder="Enter the sentence" required="required"><br>
+  <input type="submit" value="CLASSIFY" >
+</form>
+
+</body>
+</html>
