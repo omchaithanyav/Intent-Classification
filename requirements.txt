@@ -4,6 +4,9 @@ Jinja2
 Werkzeug
 itsdangerous
 MarkupSafe
-tensorflow
+keras
 numpy
+pickle5
+pandas
+matplotlib
 
