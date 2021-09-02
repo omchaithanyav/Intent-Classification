@@ -4,24 +4,24 @@ import numpy as np
 import keras
 from keras.preprocessing.sequence import pad_sequences
 
-app = Flask(__name__)\
+app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
     return render_template("index.html")
 
 
-@app.route("/classify", methods=["POST"])
+@app.route("/classify", methods=['GET', 'POST'])
 def classify():
     text = str(request.form['sentence'])
 
     # load the saved model and tokenizer
-    saved_model = keras.models.load_model('models/Intent_Classification.h5')
+    model = keras.models.load_model('models/Intent_Classification.h5')
     tokenizer = pickle.load(open('models/tokenizer.pkl', 'rb'))
 
     tokens = tokenizer.texts_to_sequences([text])
     tokens = pad_sequences(tokens, maxlen=100)
-    prediction = saved_model.predict(np.array(tokens))
+    prediction = model.predict(np.array(tokens))
     pred = np.argmax(prediction)
     classes = ['BookRestaurant', 'GetWeather', 'PlayMusic', 'RateBook']
     result = classes[pred]
